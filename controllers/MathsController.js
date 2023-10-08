@@ -3,7 +3,6 @@ import Repository from '../models/repository.js';
 import Controller from './Controller.js';
 import fs from "fs";
 
-
 export default class MathsController extends Controller {
     constructor(HttpContext) {
         super(HttpContext, new Repository(new MathsModel()));
@@ -85,9 +84,9 @@ export default class MathsController extends Controller {
         else{
             this.HttpContext.response.JSON({error: "Bad request"});
         }
-        function isPrime(valeur) {
-            for (var i = 2; i < valeur; i++) {
-                if (valeur % i === 0) {
+        function isPrime(value) {
+            for (var i = 2; i < value; i++) {
+                if (value % i === 0) {
                     return false;
                 }
             }
@@ -100,14 +99,14 @@ export default class MathsController extends Controller {
             return n * factorial(n - 1);
         }
         function findPrime(n) {
-            let primeNumber = 0;
+            let primeNumer = 0;
             for (let i = 0; i < n; i++) {
-                primeNumber++;
-                while (!isPrime(primeNumber)) {
-                    primeNumber++;
+                primeNumer++;
+                while (!isPrime(primeNumer)) {
+                    primeNumer++;
                 }
             }
-            return primeNumber;
+            return primeNumer;
         }
 
     }
