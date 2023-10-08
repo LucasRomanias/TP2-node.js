@@ -27,13 +27,15 @@
 </head>
 
 <body>
-    <h1>Test du service /api/maths</h1>
+    <h1>Test du service math</h1>
     <fieldset>
         <legend>
             <h3>Url du service</h3>
         </legend>
-        <input type="text" id="serviceHost" value="http://localhost:5000" placeholder="host">
-        <span>/api/maths</span>
+        
+        <!--<input type="text" id="serviceHost" value="http://localhost:5000" placeholder="host"> -->
+        <input type="text" id="serviceHost" value="https://organized-wax-tarragon.glitch.me" placeholder="host">
+        <span>math</span>
         <button id="LaunchTestCMD">Démarrer le test</button>
         <button id="serviceHelp">Aide</button>
     </fieldset>
@@ -61,8 +63,8 @@
         })
 
         $("#serviceHelp").on('click', () => {
-            console.log($("#serviceHost").val().trim() + "/api/maths?");
-            document.location = $("#serviceHost").val().trim() + "/api/maths?";
+            console.log($("#serviceHost").val().trim() + "math?");
+            document.location = $("#serviceHost").val().trim() + "maths";
         })
 
         async function launchTests(host) {
