@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <h1>Test du service math</h1>
+    <h1>Test du service api/maths</h1>
     <fieldset>
         <legend>
             <h3>Url du service</h3>
@@ -63,8 +63,8 @@
         })
 
         $("#serviceHelp").on('click', () => {
-            console.log($("#serviceHost").val().trim() + "/math?");
-            document.location = $("#serviceHost").val().trim() + "/math";
+            console.log($("#serviceHost").val().trim() + "/api/maths?");
+            document.location = $("#serviceHost").val().trim() + "/api/maths";
         })
 
         async function launchTests(host) {
