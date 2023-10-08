@@ -67,12 +67,14 @@
             document.location = $("#serviceHost").val().trim() + "/api/maths";
         })
 
-        async function launchTests(host) {
+        async function launchTests(host){
             problems = 0;
             $(".container").empty();
             $("#verdict").text("Test en cours");
+            
             if (!(await webAPI_getMaths(host, "?op=+&x=-111&y=-244", showResult)))
                 problems = -1;
+
             else {
                 await webAPI_getMaths(host, "?op=-&x=111&y=244", showResult)
                 await webAPI_getMaths(host, "?op=*&x=11.56&y=244.12345", showResult)
