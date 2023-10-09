@@ -22,8 +22,6 @@ export default class MathsController extends Controller {
         if(op == undefined && (!isNaN(x) || n!= undefined)){
             
             this.HttpContext.response.JSON({error: "you need a operator"});
-
-
         }
         if(op == "-"){
             this.HttpContext.response.JSON({op: op ,x: x,y:y,value:(x-y)});
@@ -42,8 +40,7 @@ export default class MathsController extends Controller {
             }
             else{
                 this.HttpContext.response.JSON({op: op ,x: x,y:y,value:(x/y)});
-            }
-            
+            }   
         }
         else if(op=="*"){
             this.HttpContext.response.JSON({op: op ,x: x,y:y,value:(x*y)});
