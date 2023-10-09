@@ -11,11 +11,11 @@ export default class MathsController extends Controller {
     get(){
         let op =this.HttpContext.path.params["op"];
         let x= parseInt( this.HttpContext.path.params["x"]);
-        if(this.HttpContext.path.params["x"] ==undefined){
+        if(this.HttpContext.path.params["x"] == undefined){
             x= parseInt( this.HttpContext.path.params["X"]);
         }
         let y=parseInt(this.HttpContext.path.params["y"]);
-        if(this.HttpContext.path.params["y"] ==undefined){
+        if(this.HttpContext.path.params["y"] == undefined){
             y= parseInt( this.HttpContext.path.params["Y"]);
         }   
         let n = this.HttpContext.path.params["n"];
@@ -25,57 +25,42 @@ export default class MathsController extends Controller {
         }
         if(op == "-"){
             this.HttpContext.response.JSON({op: op ,x: x,y:y,value:(x-y)});
-        }
-        else if(op == " "){
+        }else if(op == " "){
             this.HttpContext.response.JSON({op: "+" ,x: x,y:y,value:(x+y)});
-        }
-        else if(op== "/"){
-            if(y==0){
-                if(x!=0){
+        }else if(op== "/"){
+            if(y == 0){
+                if(x !=0 ){
                     this.HttpContext.response.JSON({op: op ,x: x,y:y,value:"Infinity"});
-                }
-                else{
+                }else{
                     this.HttpContext.response.JSON({op: op ,x: x,y:y,value:"NaN"});
                 }                
-            }
-            else{
+            }else{
                 this.HttpContext.response.JSON({op: op ,x: x,y:y,value:(x/y)});
             }   
-        }
-        else if(op=="*"){
+        }else if(op == "*"){
             this.HttpContext.response.JSON({op: op ,x: x,y:y,value:(x*y)});
-        }
-        else if(op=="%"){
-            if(y==0){
-
-                    this.HttpContext.response.JSON({op: op ,x: x,y:y,value:"NaN"});
-            }
-            else{
+        }else if(op == "%"){
+            if(y == 0){
+                this.HttpContext.response.JSON({op: op ,x: x,y:y,value:"NaN"});
+            }else{
                 this.HttpContext.response.JSON({op: op ,x: x,y:y,value:(x%y)});
             }
-        }
-        else if(op=="!"){
-            if(n==0){
+        }else if(op == "!"){
+            if(n == 0){
                 this.HttpContext.response.JSON({op: op ,n: n,error:"No 0"});
-            }
-            else{
+            }else{
                 this.HttpContext.response.JSON({op: op ,n: n,value:(factorial(n))});
             }
             
-        }
-        else if(op=="p"){
-            if(n==0){
+        }else if(op == "p"){
+            if(n == 0){
                 this.HttpContext.response.JSON({op: op ,n: n,error:"No 0"});
-            }
-            else if((n - Math.floor(n)) !== 0){
+            }else if((n - Math.floor(n)) !== 0){
                 this.HttpContext.response.JSON({op: op ,n: n,error:"Number cant have decimals"});
-            }
-            else{
+            }else{
                 this.HttpContext.response.JSON({op: op ,n: n,value:(isPrime(n))});
-            }
-            
-        }
-        else if(op=="np"){
+            } 
+        }else if(op == "np"){
             this.HttpContext.response.JSON({op: op ,n: n,value:(findPrime(n))});
         }
         else{
